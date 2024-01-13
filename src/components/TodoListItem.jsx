@@ -1,5 +1,9 @@
 import styled from "styled-components";
-import { MdCheckBoxOutlineBlank, MdClose } from "react-icons/md";
+import {
+  MdCheckBoxOutlineBlank,
+  MdClose,
+  MdOutlineCheckBox,
+} from "react-icons/md";
 
 const Wrapper = styled.div`
   display: flex;
@@ -28,12 +32,17 @@ const Remove = styled.span`
   color: #bf8dff;
 `;
 
-const TodoListItem = () => {
+const TodoListItem = ({ todo }) => {
+  const { text, checked } = todo;
   return (
     <Wrapper>
       <CheckBox>
-        <MdCheckBoxOutlineBlank size="1.5rem" color="#bf8dff" />
-        <ToDo>할일</ToDo>
+        {checked ? (
+          <MdOutlineCheckBox size="1.5rem" color="#bf8dff" />
+        ) : (
+          <MdCheckBoxOutlineBlank size="1.5rem" color="#bf8dff" />
+        )}
+        <ToDo>{text}</ToDo>
       </CheckBox>
       <Remove>
         <MdClose />

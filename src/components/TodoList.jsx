@@ -7,12 +7,12 @@ const Wrapper = styled.div`
   overflow-y: auto; //max-height보다 넘치면 스크롤바 생성
 `;
 
-const TodoList = () => {
+const TodoList = ({ todos }) => {
   return (
     <Wrapper>
-      <TodoListItem />
-      <TodoListItem />
-      <TodoListItem />
+      {todos.map((todo) => (
+        <TodoListItem todo={todo} key={todo.id}></TodoListItem>
+      ))}
     </Wrapper>
   );
 };
