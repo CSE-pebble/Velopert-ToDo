@@ -1,12 +1,13 @@
 import "./App.css";
-import GlobalStyle from "./components/GlobalStyle";
+import TodoInsert from "./components/TodoInsert";
 import TodoTemplate from "./components/TodoTemplate";
 
 function App() {
   return (
     <>
-      <GlobalStyle />
-      <TodoTemplate />
+      <TodoTemplate>
+        <TodoInsert />
+      </TodoTemplate>
     </>
   );
 }

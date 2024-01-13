@@ -5,8 +5,8 @@ const Wrapper = styled.div`
   margin-left: auto;
   margin-right: auto;
   margin-top: 6rem;
-  border-radius: 4px;
-  /* overflow: hidden; */
+  border-radius: 5px;
+  overflow: hidden;
 `;
 
 const Title = styled.div`
@@ -23,11 +23,11 @@ const Content = styled.div`
   background-color: white;
 `;
 
-const TodoTemplate = () => {
+const TodoTemplate = ({ children }) => {
   return (
     <Wrapper>
       <Title>ToDo</Title>
-      <Content>내용</Content>
+      <Content>{children}</Content>
     </Wrapper>
   );
 };
