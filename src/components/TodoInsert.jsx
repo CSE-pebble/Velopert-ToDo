@@ -3,7 +3,6 @@ import { MdAdd } from "react-icons/md";
 
 const Wrapper = styled.div`
   display: flex;
-  justify-content: space-between;
 `;
 
 const Input = styled.input`
@@ -22,6 +21,7 @@ const Button = styled.button`
   padding: 1rem;
   display: flex;
   align-items: center;
+  background-color: white;
 `;
 
 const TodoInsert = () => {

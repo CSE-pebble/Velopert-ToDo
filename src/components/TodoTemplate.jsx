@@ -20,7 +20,7 @@ const Title = styled.div`
 `;
 
 const Content = styled.div`
-  background-color: white;
+  background-color: #ececec;
 `;
 
 const TodoTemplate = ({ children }) => {
