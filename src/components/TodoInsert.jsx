@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { MdAdd } from "react-icons/md";
 import { useCallback, useState } from "react";
 
-const Wrapper = styled.div`
+const Wrapper = styled.form`
   display: flex;
 `;
 
@@ -25,22 +25,30 @@ const Button = styled.button`
   background-color: white;
 `;
 
-const TodoInsert = () => {
+const TodoInsert = ({ onInsert }) => {
   const [value, setValue] = useState("");
 
   const onChange = useCallback((e) => {
     setValue(e.target.value);
   }, []);
 
+  const onSubmit = useCallback(
+    (e) => {
+      onInsert(value);
+      setValue("");
+      e.preventDefault();
+    },
+    [onInsert, value]
+  );
+
   return (
-    <Wrapper>
+    <Wrapper onSubmit={onSubmit}>
       <Input
         placeholder="할 일을 입력하세요."
         value={value}
         onChange={onChange}
       ></Input>
       <Button>
-        {" "}
         <MdAdd size="17" />
       </Button>
     </Wrapper>
