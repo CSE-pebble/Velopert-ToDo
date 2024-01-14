@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   overflow-y: auto; //max-height보다 넘치면 스크롤바 생성
 `;
 
-const TodoList = ({ todos, onRemove }) => {
+const TodoList = ({ todos, onRemove, onToggle }) => {
   return (
     <Wrapper>
       {todos.map((todo) => (
@@ -15,6 +15,7 @@ const TodoList = ({ todos, onRemove }) => {
           todo={todo}
           key={todo.id}
           onRemove={onRemove}
+          onToggle={onToggle}
         ></TodoListItem>
       ))}
     </Wrapper>

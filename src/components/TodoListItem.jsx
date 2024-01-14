@@ -13,6 +13,7 @@ const Wrapper = styled.div`
     background: white;
   }
   justify-content: space-between;
+  border-top: 1px solid #dee2e6;
 `;
 const CheckBox = styled.span`
   display: flex;
@@ -24,7 +25,11 @@ const ToDo = styled.span`
   max-width: 400px;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-decoration: ${(props) =>
+    props.checked === true ? "line-through" : "none"};
+  color: ${(props) => (props.checked === true ? "#adb5bd" : "black")};
 `;
+
 const Remove = styled.span`
   display: flex;
   align-items: center;
@@ -32,17 +37,17 @@ const Remove = styled.span`
   color: #bf8dff;
 `;
 
-const TodoListItem = ({ todo, onRemove }) => {
+const TodoListItem = ({ todo, onRemove, onToggle }) => {
   const { id, text, checked } = todo;
   return (
     <Wrapper>
-      <CheckBox>
+      <CheckBox onClick={() => onToggle(id)}>
         {checked ? (
           <MdOutlineCheckBox size="1.5rem" color="#bf8dff" />
         ) : (
           <MdCheckBoxOutlineBlank size="1.5rem" color="#bf8dff" />
         )}
-        <ToDo>{text}</ToDo>
+        <ToDo checked={checked}>{text}</ToDo>
       </CheckBox>
       <Remove onClick={() => onRemove(id)}>
         <MdClose />
