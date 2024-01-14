@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { MdAdd } from "react-icons/md";
+import { useCallback, useState } from "react";
 
 const Wrapper = styled.div`
   display: flex;
@@ -25,9 +26,19 @@ const Button = styled.button`
 `;
 
 const TodoInsert = () => {
+  const [value, setValue] = useState("");
+
+  const onChange = useCallback((e) => {
+    setValue(e.target.value);
+  }, []);
+
   return (
     <Wrapper>
-      <Input placeholder="할 일을 입력하세요."></Input>
+      <Input
+        placeholder="할 일을 입력하세요."
+        value={value}
+        onChange={onChange}
+      ></Input>
       <Button>
         {" "}
         <MdAdd size="17" />
