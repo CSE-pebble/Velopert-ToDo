@@ -32,8 +32,8 @@ const Remove = styled.span`
   color: #bf8dff;
 `;
 
-const TodoListItem = ({ todo }) => {
-  const { text, checked } = todo;
+const TodoListItem = ({ todo, onRemove }) => {
+  const { id, text, checked } = todo;
   return (
     <Wrapper>
       <CheckBox>
@@ -44,7 +44,7 @@ const TodoListItem = ({ todo }) => {
         )}
         <ToDo>{text}</ToDo>
       </CheckBox>
-      <Remove>
+      <Remove onClick={() => onRemove(id)}>
         <MdClose />
       </Remove>
     </Wrapper>
